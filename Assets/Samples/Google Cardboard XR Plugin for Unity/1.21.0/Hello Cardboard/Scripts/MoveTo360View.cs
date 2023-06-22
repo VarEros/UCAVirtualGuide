@@ -9,8 +9,9 @@ public class MoveTo360View : MonoBehaviour
     /// The material to use when this object is inactive (not being gazed at).
     /// </summary>
     [SerializeField] private GameObject target;
-    [SerializeField] private Vector3 teleportPose;
+    [SerializeField] private GameObject sphere;
     private MeshRenderer _myRenderer;
+    private AudioSource _mySound;
     //private Vector3 teleportPose;
 
     private bool colorChaning = false;
@@ -20,6 +21,7 @@ public class MoveTo360View : MonoBehaviour
     public void Start()
     {
         _myRenderer = GetComponent<MeshRenderer>();
+        _mySound = sphere.GetComponent<AudioSource>();
         //teleportPose = new Vector3(sphere.transform.position.x, sphere.transform.position.y, sphere.transform.position.z)
     }
 
@@ -29,7 +31,8 @@ public class MoveTo360View : MonoBehaviour
             myTimer += Time.deltaTime;
             if (myTimer >= 2f)
             {
-                target.transform.position = teleportPose;
+                target.transform.position = sphere.transform.position;
+                _mySound.Play();
             }
         }
     }
