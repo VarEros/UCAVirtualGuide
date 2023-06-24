@@ -29,6 +29,7 @@ public class MoveTo360View : MonoBehaviour
     {
         if (colorChaning) {
             myTimer += Time.deltaTime;
+            //transform.Rotate(0f, 50f * Time.deltaTime, 0f, Space.Self);
             if (myTimer >= 2f)
             {
                 target.transform.position = sphere.transform.position;
