@@ -11,6 +11,7 @@ public class MoveTo360View : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject sphere;
     private MeshRenderer _myRenderer;
+    private AudioSource _myTpSound;
     private AudioSource _mySound;
     //private Vector3 teleportPose;
 
@@ -21,6 +22,7 @@ public class MoveTo360View : MonoBehaviour
     public void Start()
     {
         _myRenderer = GetComponent<MeshRenderer>();
+        _myTpSound = GetComponent<AudioSource>();
         _mySound = sphere.GetComponent<AudioSource>();
         //teleportPose = new Vector3(sphere.transform.position.x, sphere.transform.position.y, sphere.transform.position.z)
     }
@@ -34,6 +36,7 @@ public class MoveTo360View : MonoBehaviour
             {
                 target.transform.position = sphere.transform.position;
                 _mySound.Play();
+                _myTpSound.Play();
             }
         }
     }
@@ -46,6 +49,11 @@ public class MoveTo360View : MonoBehaviour
     public void OnPointerExit()
     {
         GazeAt(false);
+    }
+
+    public void OnPointerClick()
+    {
+
     }
 
     public void GazeAt(bool gazing)

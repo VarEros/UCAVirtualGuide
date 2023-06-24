@@ -28,7 +28,7 @@ public class GoBackHome : MonoBehaviour
             transform.parent.localScale += scaleInit;
         else
             transform.parent.localScale = scale;
-        if (transform.parent.localScale.x >= 0.8f)
+        if (transform.parent.localScale.x >= 0.9f)
         {
             Vector3 home = new Vector3(0f, 5f, 0f);
             target.transform.position = home;
